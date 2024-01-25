@@ -43,8 +43,7 @@ jobs:
 
     - name: Create Bundle Zip
       run: |
-        # Ajoutez ici les commandes nécessaires pour créer votre bundle Zip
-        # Exemple : zip -r python_bundle.zip .
+        zip -r python_bundle.zip .
 
     - name: Upload Bundle Zip
       uses: actions/upload-artifact@v2
