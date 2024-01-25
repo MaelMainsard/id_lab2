@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with: 
           name: bundle.zip
-          path: src/
+          path: ./
 
   publish:
     runs-on: ubuntu-latest
