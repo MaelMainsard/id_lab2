@@ -6,6 +6,24 @@ on:
       - release
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Lint Code
+      run: |
+        python -m pip install flake8
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
   build:
     runs-on: ubuntu-latest
 
@@ -25,10 +43,36 @@ jobs:
 
     - name: Create Bundle Zip
       run: |
-        zip -r python_bundle.zip .
+        # Ajoutez ici les commandes nécessaires pour créer votre bundle Zip
+        # Exemple : zip -r python_bundle.zip .
 
     - name: Upload Bundle Zip
       uses: actions/upload-artifact@v2
       with:
         name: python_bundle
-        path: python_bundle.zip 
+        path: python_bundle.zip
+
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      with:
+        tag_name: v${{ github.run_number }}
+        release_name: Release v${{ github.run_number }}
+        body: |
+          Changes in this release:
+          - Your release notes here
+
+    - name: Upload Release Artifact
+      id: upload-release-artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: python_bundle
+        path: python_bundle.zip
+      if: success()
