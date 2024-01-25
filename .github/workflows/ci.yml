@@ -51,7 +51,7 @@ jobs:
         name: python_bundle
         path: python_bundle.zip
 
-  publish:
+    publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -86,7 +86,7 @@ jobs:
       uses: actions/upload-release-asset@v1
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./python_bundle.zip
+        asset_path: ./python_bundle.zip  # Assurez-vous que le chemin est correct
         asset_name: python_bundle.zip
         asset_content_type: application/zip
       if: success()
