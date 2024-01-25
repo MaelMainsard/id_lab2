@@ -51,7 +51,7 @@ jobs:
         name: python_bundle
         path: python_bundle.zip
 
-    publish:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
