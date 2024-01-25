@@ -68,6 +68,8 @@ jobs:
         body: |
           Changes in this release:
           - Your release notes here
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload Release Artifact
       id: upload-release-artifact
