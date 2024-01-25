@@ -25,8 +25,7 @@ jobs:
 
     - name: Create Bundle Zip
       run: |
-        # Ajoutez ici les commandes nécessaires pour créer votre bundle Zip
-        # Exemple : zip -r my_bundle.zip .
+        zip -r my_bundle.zip .
 
     - name: Upload Bundle Zip
       uses: actions/upload-artifact@v2
