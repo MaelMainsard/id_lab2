@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v4.1.1
 
       - name : Installation de librairies python
-        run: pip install -r code-appli-python/vote/requirements.txt
+        run: pip install -r ./requirements.txt
 
       - name : Creation d'un répertoire pour le bundle
         run: mkdir bundle-lab2
