@@ -51,10 +51,10 @@ jobs:
     needs: [lint, build]
     steps:
       - name: Download Artificat
-      uses: actions/upload-artifact@v4
-      with:
-        name: bundle.zip
-        path: ./bundle-lab2/bundle.zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle.zip
+          path: ./bundle-lab2/bundle.zip
 
       - name: Create Release
         uses: actions/create-release@v1
