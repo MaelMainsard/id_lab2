@@ -38,7 +38,7 @@ jobs:
         run: mkdir bundle-lab2
 
       - name : Creation zip
-        run: zip -r bundle.zip bundle-lab2
+        run: zip -r bundle-lab2/bundle.zip bundle-lab2
 
       - name: Upload d'artéfacts
         uses: actions/upload-artifact@v4
@@ -61,5 +61,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
         with:
-          tag_name: v1.0.3
+          tag_name: v1.0.4
           release_name: Release v1
